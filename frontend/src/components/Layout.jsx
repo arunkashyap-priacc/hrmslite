@@ -7,7 +7,7 @@ const navItems = [
   { path: "/attendance", label: "Attendance", icon: "☑" },
 ];
 
-export default function Layout({ children }) {
+export default function Layout({ children, onLogout }) {
   const location = useLocation();
   const [open, setOpen] = useState(false);
 
@@ -86,9 +86,18 @@ export default function Layout({ children }) {
             </button>
             <p className="text-lg font-semibold md:hidden">{title}</p>
           </div>
-          <p className="hidden text-sm text-gray-500 md:block">
-            HRMS Admin Panel
-          </p>
+          <div className="flex items-center gap-3">
+            <p className="hidden text-sm text-gray-500 md:block">
+              HRMS Admin Panel
+            </p>
+            <button
+              type="button"
+              onClick={onLogout}
+              className="rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-700"
+            >
+              Logout
+            </button>
+          </div>
         </header>
 
         <div className="p-4 md:p-8">{children}</div>
