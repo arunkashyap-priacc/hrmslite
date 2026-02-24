@@ -1,11 +1,15 @@
 from pydantic import BaseModel, EmailStr
-from typing import Optional
 
-class Employee(BaseModel):
-    employee_id: str
+
+class EmployeeCreate(BaseModel):
     full_name: str
     email: EmailStr
     department: str
+
+
+class Employee(EmployeeCreate):
+    employee_id: str
+
 
 class Attendance(BaseModel):
     employee_id: str
